@@ -1,14 +1,15 @@
 package com.example.android.realapitest;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Post {
 
+
     @SerializedName("ISBN:9780743482844")
-    private Object isbn;
+    private Post2 post2;
 
-
-    public Object getIsbn() {
-        return isbn;
+    public Post2 getPost2() {
+        return post2;
     }
 }

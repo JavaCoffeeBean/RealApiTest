@@ -16,6 +16,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textViewResult;
+    private Object pop;
+    private String pop2;
     private static final String TAG = "MainActivity";
 
 
@@ -45,10 +47,9 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-              Post post = new Post();
-                post = response.body();
 
-                textViewResult.setText(post.getIsbn().toString());
+
+                /*textViewResult.setText();*/
 
                 /*for (Post post : posts) {
                     String content = "";
@@ -67,4 +68,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
