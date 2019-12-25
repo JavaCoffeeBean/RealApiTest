@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         textViewResult = findViewById(R.id.text_view_result);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
+                .baseUrl("https://openlibrary.org/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<Post>() {
             @Override
             public void onResponse(Call<Post> call, Response<Post> response) {
+                Log.d(TAG, "onResponse: You got a response, and it was Gucci");
 
                 if (!response.isSuccessful()) {
                     Log.d(TAG, "onResponse:Server was contacted, but could not find what you wanted. ");
@@ -49,7 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                /*textViewResult.setText();*/
+
+
+                textViewResult.setText(response.body().getPost2().getName());
 
                 /*for (Post post : posts) {
                     String content = "";
