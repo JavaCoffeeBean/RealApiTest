@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 public class Post {
 
 
-    @SerializedName("ISBN:9780743482844")
+    @SerializedName("ISBN:9780605039070")
     private Post2 post2;
 
     public Post2 getPost2() {

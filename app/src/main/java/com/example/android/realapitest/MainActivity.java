@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -35,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         OpenLibraryApi openLibraryApi = retrofit.create(OpenLibraryApi.class);
 
+
         Call<Post> call = openLibraryApi.getPosts();
 
         call.enqueue(new Callback<Post>() {
@@ -54,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
                 textViewResult.setText(response.body().getPost2().getName());
 
+                ImageView imageView = (ImageView) findViewById(R.id.my_image_view);
+
+                Glide.with(imageView).load(response.body().getPost2().getPost3().getMediumCover()).into(imageView);
+
                 /*for (Post post : posts) {
                     String content = "";
                     content += "ID: " + post.getId() + "\n";
@@ -71,5 +80,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 }
