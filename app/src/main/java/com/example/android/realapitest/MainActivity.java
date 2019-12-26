@@ -55,9 +55,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+                try {
 
 
-                textViewResult.setText(response.body().getPost2().getName());
+                    textViewResult.setText(response.body().getPost2().getName());
+                }
+                catch (Exception e) {
+                    textViewResult.setText("Error retrieviing Book name");
+                }
 
 
 
