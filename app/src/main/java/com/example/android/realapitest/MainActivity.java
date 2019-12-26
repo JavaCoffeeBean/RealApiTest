@@ -59,9 +59,18 @@ public class MainActivity extends AppCompatActivity {
 
                 textViewResult.setText(response.body().getPost2().getName());
 
+
+
                 ImageView imageView = (ImageView) findViewById(R.id.my_image_view);
 
-                Glide.with(imageView).load(response.body().getPost2().getPost3().getMediumCover()).into(imageView);
+                try {
+
+
+                    Glide.with(imageView).load(response.body().getPost2().getPost3().getMediumCover()).into(imageView);
+                }
+                catch (Exception e) {
+                    imageView.setImageResource(R.drawable.noimage);
+                }
 
                 /*for (Post post : posts) {
                     String content = "";
