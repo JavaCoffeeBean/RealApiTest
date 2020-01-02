@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private String pop2;
     private static final String TAG = "MainActivity";
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +31,11 @@ public class MainActivity extends AppCompatActivity {
         textViewResult = findViewById(R.id.text_view_result);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://openlibrary.org/")
+                .baseUrl("https://www.googleapis.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         OpenLibraryApi openLibraryApi = retrofit.create(OpenLibraryApi.class);
-
 
         Call<Post> call = openLibraryApi.getPosts();
 
@@ -53,10 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-
-
                 try {
-
 
                     textViewResult.setText(response.body().getPost2().getName());
                 }
@@ -64,12 +58,9 @@ public class MainActivity extends AppCompatActivity {
                     textViewResult.setText("Error retrieviing Book name");
                 }
 
-
-
                 ImageView imageView = (ImageView) findViewById(R.id.my_image_view);
 
                 try {
-
 
                     Glide.with(imageView).load(response.body().getPost2().getPost3().getMediumCover()).into(imageView);
                 }
@@ -77,15 +68,6 @@ public class MainActivity extends AppCompatActivity {
                     imageView.setImageResource(R.drawable.noimage);
                 }
 
-                /*for (Post post : posts) {
-                    String content = "";
-                    content += "ID: " + post.getId() + "\n";
-                    content += "User ID: " + post.getUserId() + "\n";
-                    content += "Title: " + post.getTitle() + "\n";
-                    content += "Text: " + post.getText() + "\n\n";
-
-                    textViewResult.append(content);
-                }*/
             }
 
             @Override
@@ -94,7 +76,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
 }
