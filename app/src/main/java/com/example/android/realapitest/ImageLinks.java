@@ -1,4 +1,4 @@
-package com.example.android.realapitest.ItemsList;
+package com.example.android.realapitest;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -9,4 +9,12 @@ public class ImageLinks {
 
     @SerializedName("thumbnail")
     private String thumbnail;
+
+    public String getSmallThumbnail() {
+        return smallThumbnail;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
 }

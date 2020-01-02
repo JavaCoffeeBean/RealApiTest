@@ -7,7 +7,7 @@ import retrofit2.http.Query;
 
 public interface OpenLibraryApi {
 
-    @GET("api/books?bibkeys=ISBN:9780545035170&jscmd=data&format=json")
+    @GET("books/v1/volumes?q=isbn:9780743482844&key=AIzaSyDG6IF6-n0EDhvSfac4OYNqtU520xQUqzQ")
     Call<Post> getPosts();
 
 }

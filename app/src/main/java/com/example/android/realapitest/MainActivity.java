@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
 
-                    textViewResult.setText(response.body().getPost2().getName());
+                    textViewResult.setText(response.body().getItems().get(0).getVolumeInfo().getIndustryIdentifiers().get(0).getIdentifier());
                 }
                 catch (Exception e) {
                     textViewResult.setText("Error retrieviing Book name");
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
 
-                    Glide.with(imageView).load(response.body().getPost2().getPost3().getMediumCover()).into(imageView);
+                    Glide.with(imageView).load(response.body().getItems().get(0).getVolumeInfo().getImageLinks().getThumbnail()).into(imageView);
                 }
                 catch (Exception e) {
                     imageView.setImageResource(R.drawable.noimage);
