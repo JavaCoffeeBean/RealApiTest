@@ -1,4 +1,4 @@
-package com.example.android.realapitest;
+package com.example.android.realapitest.ItemsList;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
+import java.math.BigInteger;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         OpenLibraryApi openLibraryApi = retrofit.create(OpenLibraryApi.class);
 
-        Call<Post> call = openLibraryApi.getPosts();
+        Call<Post> call = openLibraryApi.getPosts(9780545035170L);
 
         call.enqueue(new Callback<Post>() {
             @Override
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
 
-                    textViewResult.setText(response.body().getItems().get(0).getVolumeInfo().getIndustryIdentifiers().get(0).getIdentifier());
+                    textViewResult.setText(response.body().getItems().get(0).getVolumeInfo().getTitle());
                 }
                 catch (Exception e) {
                     textViewResult.setText("Error retrieviing Book name");

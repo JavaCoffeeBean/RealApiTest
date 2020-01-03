@@ -1,4 +1,6 @@
-package com.example.android.realapitest;
+package com.example.android.realapitest.ItemsList;
+
+import com.example.android.realapitest.ItemsList.VolumeInfo;
 
 public class Items {
 

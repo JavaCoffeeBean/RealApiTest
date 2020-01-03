@@ -1,5 +1,6 @@
 package com.example.android.realapitest;
 
+import com.example.android.realapitest.ItemsList.Items;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
