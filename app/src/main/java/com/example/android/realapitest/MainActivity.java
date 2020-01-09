@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import java.util.List;
 import java.math.BigInteger;
@@ -50,16 +51,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void jsonParse() {
 
-        String url = "https://api.myjson.com/bins/kp9wz";
+        String url = "https://www.googleapis.com/books/v1/volumes?q=9780545035170&key=AIzaSyDG6IF6-n0EDhvSfac4OYNqtU520xQUqzQ";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray jsonArray = response.getJSONArray("employees");
+                            JSONArray jsonArray = response.getJSONArray("items");
 
-                            for (int i = 0; i < jsonArray.length(); i++) {
+
+                            /*for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject employee = jsonArray.getJSONObject(i);
 
                                 String firstName = employee.getString("firstname");
@@ -67,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
                                 String mail = employee.getString("mail");
 
                                 textViewResult.append(firstName + ", " + String.valueOf(age) + ", " + mail + "\n\n");
-                            }
+                            }*/
+
+                            textViewResult.setText(jsonArray.getJSONObject(0).getJSONObject("volumeInfo").getString("title"));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
